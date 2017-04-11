@@ -11,7 +11,6 @@ function scoreCalc() {
   var totalNotes = critical + near + error;
   var criticalVal =  10000000/totalNotes;
   var nearVal = criticalVal/2;
-  var errorVal = criticalVal;
   var otherInfo = "";
 
   if (critical != 0 && near == 0 && error == 0)
