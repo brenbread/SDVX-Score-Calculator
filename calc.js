@@ -1,8 +1,14 @@
-function scoreCalc(critical, near, error) {
-  totalNotes = critical + near + error;
-  criticalVal =  10000000/totalNotes;
-  nearVal = criticalVal/2;
-  errorVal = criticalVal;
+function scoreCalc() {
+  var critical = document.getElementById("critical").value;
+  var near = document.getElementById("near").value;
+  var error = document.getElementById("error").value;
+  var criticalP = parseInt(critical);
+  var nearP = parseInt(near);
+  var errorP = parseInt(error);
+  var totalNotes = criticalP + nearP + errorP;
+  var criticalVal =  10000000/totalNotes;
+  var nearVal = criticalVal/2;
+  var errorVal = criticalVal;
   if (critical != 0 && near == 0 && error == 0)
     {
       totScore = 10000000;
@@ -11,7 +17,7 @@ function scoreCalc(critical, near, error) {
     totScore = 0;
   }
   else {
-    totScore = 10000000 - (nearVal*near) - (errorVal*error);
+    totScore = (criticalVal*criticalP)+(nearVal*nearP);
   }
-  return Math.floor(totScore);
+  document.getElementById("score").innerHTML = Math.floor(totScore);
 }
