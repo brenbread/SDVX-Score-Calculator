@@ -20,7 +20,11 @@ function scoreCalc() {
     totScore = (criticalVal*critical)+(nearVal*near);
   }
 
-  if (totScore==0 && error==0 && near==0 || error>=1){
+  if (totScore==0 && error==0 && near==0){
+    grade="N/A";
+    otherInfo ="Did you even play?";
+  }
+  else if (totScore==0 && error>1 && near==0){
     grade="N/A";
     otherInfo ="Did you even play?";
   }
