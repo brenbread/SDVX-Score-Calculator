@@ -1,3 +1,9 @@
+function scoreClear() {
+  document.getElementById("critical").value = NaN;
+  document.getElementById("near").value = NaN;
+  document.getElementById("error").value = NaN;
+}
+
 function scoreCalc() {
   var critical = parseInt(document.getElementById("critical").value);
   var near =parseInt(document.getElementById("near").value);
@@ -11,7 +17,7 @@ function scoreCalc() {
   if (critical != 0 && near == 0 && error == 0)
     {
       totScore = 10000000;
-
+      otherInfo = "PUC!!";
     }
   else if (critical == 0 && near == 0 && error == 0){
     totScore = 0;
@@ -20,11 +26,7 @@ function scoreCalc() {
     totScore = (criticalVal*critical)+(nearVal*near);
   }
 
-  if (totScore==0 && error==0 && near==0){
-    grade="N/A";
-    otherInfo ="Did you even play?";
-  }
-  else if (totScore==0 && error>1 && near==0){
+  if ((totScore==0 && error==0 && near==0)||(totScore==0 && error>1 && near==0)){
     grade="N/A";
     otherInfo ="Did you even play?";
   }
@@ -38,6 +40,9 @@ function scoreCalc() {
   }
   else if (near==1 && error==0) {
     otherInfo = "HAH SNM'D!";
+  }
+  if (isNaN(totScore)){
+    otherInfo = "Please input numbers for each field";
   }
 
   var grade ="";
@@ -75,5 +80,6 @@ function scoreCalc() {
   document.getElementById("score").innerHTML = Math.floor(totScore);
   document.getElementById("grade").innerHTML = grade;
   document.getElementById("otherInfo").innerHTML = otherInfo;
+
 
 }
