@@ -1,11 +1,8 @@
 function scoreCalc() {
-  var critical = document.getElementById("critical").value;
-  var near = document.getElementById("near").value;
-  var error = document.getElementById("error").value;
-  var criticalP = parseInt(critical);
-  var nearP = parseInt(near);
-  var errorP = parseInt(error);
-  var totalNotes = criticalP + nearP + errorP;
+  var critical = parseInt(document.getElementById("critical").value);
+  var near =parseInt(document.getElementById("near").value);
+  var error = parseInt(document.getElementById("error").value);
+  var totalNotes = critical + near + error;
   var criticalVal =  10000000/totalNotes;
   var nearVal = criticalVal/2;
   var errorVal = criticalVal;
@@ -17,7 +14,7 @@ function scoreCalc() {
     totScore = 0;
   }
   else {
-    totScore = (criticalVal*criticalP)+(nearVal*nearP);
+    totScore = (criticalVal*critical)+(nearVal*near);
   }
   document.getElementById("score").innerHTML = Math.floor(totScore);
 }
