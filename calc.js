@@ -6,9 +6,12 @@ function scoreCalc() {
   var criticalVal =  10000000/totalNotes;
   var nearVal = criticalVal/2;
   var errorVal = criticalVal;
+  var otherInfo = "";
+
   if (critical != 0 && near == 0 && error == 0)
     {
       totScore = 10000000;
+
     }
   else if (critical == 0 && near == 0 && error == 0){
     totScore = 0;
@@ -16,6 +19,23 @@ function scoreCalc() {
   else {
     totScore = (criticalVal*critical)+(nearVal*near);
   }
+
+  if (totScore==0 && error==0){
+    grade="N/A";
+    otherInfo ="Did you even play?";
+  }
+
+  if(error==1 && near==1) {
+    otherInfo = "You got SNM'd and Hibiki'd ok...";
+  }
+
+  else if (error==1) {
+    otherInfo = "HAH HIBIKI'D!";
+  }
+  else if (near==1 && error==0) {
+    otherInfo = "HAH SNM'D!";
+  }
+
   var grade ="";
   if(totScore>=9900000) {
     grade="S";
@@ -47,9 +67,9 @@ function scoreCalc() {
   else if (totScore<6500000 && totScore>0) {
     grade="D";
   }
-  else if (totScore==0){
-    grade="Did you even play?";
-  }
+
   document.getElementById("score").innerHTML = Math.floor(totScore);
   document.getElementById("grade").innerHTML = grade;
+  document.getElementById("otherInfo").innerHTML = otherInfo;
+
 }
