@@ -36,6 +36,6 @@ document.addEventListener('keydown', function(e) {
 function activateCheats() {
   //wawa.src = "img/RBwawawa.png";
   //document.getElementById("RBWawawa").appendChild(wawa);
-  document.getElementById("RBWawawa").innerHTML="<img src='img/RBWawawa.png' />";
+  document.getElementById("RBWawawa").innerHTML="<img src='img/RBwawawa.png' />";
 
 }
