@@ -5,12 +5,10 @@ function scoreClear() {
 }
 
 function scoreCalc() {
-  var critical = parseInt(document.getElementById("critical").value);
-  var near =parseInt(document.getElementById("near").value);
-  var error = parseInt(document.getElementById("error").value);
+  var critical = parseFloat(document.getElementById("critical").value);
+  var near =parseFloat(document.getElementById("near").value);
+  var error = parseFloat(document.getElementById("error").value);
   var totalNotes = critical + near + error;
-  var criticalVal =  10000000/totalNotes;
-  var nearVal = criticalVal/2;
   var otherInfo = "";
 
   if (critical != 0 && near == 0 && error == 0)
@@ -22,7 +20,8 @@ function scoreCalc() {
     totScore = 0;
   }
   else {
-    totScore = (criticalVal*critical)+(nearVal*near);
+    //totScore = (criticalVal*critical)+(nearVal*near);
+    totScore = ((critical+(near/2))/totalNotes)*10000000;
   }
 
   if ((totScore==0 && error==0 && near==0)||(totScore==0 && error>1 && near==0)){
