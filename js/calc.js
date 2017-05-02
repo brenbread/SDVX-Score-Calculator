@@ -9,7 +9,10 @@ function scoreCalc() {
   var near =parseFloat(document.getElementById("near").value);
   var error = parseFloat(document.getElementById("error").value);
   var totalNotes = critical + near + error;
+  var critVal = Math.floor(10000000/critical);
+  var nearVal = Math.floor(critVal/2);
   var otherInfo = "";
+
 
   if (critical != 0 && near == 0 && error == 0)
     {
@@ -78,6 +81,9 @@ function scoreCalc() {
   document.getElementById("score").innerHTML = Math.floor(totScore);
   document.getElementById("grade").innerHTML = grade;
   document.getElementById("otherInfo").innerHTML = otherInfo;
+  document.getElementById("totalNotes").innerHTML = totalNotes;
+  document.getElementById("critInfo").innerHTML = critVal;
+  document.getElementById("nearInfo").innerHTML = nearVal;
 
 
 }
