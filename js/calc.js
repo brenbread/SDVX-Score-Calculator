@@ -9,7 +9,7 @@ function scoreCalc() {
   var near =parseFloat(document.getElementById("near").value);
   var error = parseFloat(document.getElementById("error").value);
   var totalNotes = critical + near + error;
-  var critVal = Math.floor(10000000/critical);
+  var critVal = Math.floor(10000000/totalNotes);
   var nearVal = Math.floor(critVal/2);
   var otherInfo = "";
 
